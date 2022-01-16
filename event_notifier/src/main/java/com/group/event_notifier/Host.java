@@ -18,4 +18,6 @@ public class Host {
   private String companyEmail;
   private String companyPassword;
   private String companyTelePhone;
+  private boolean organization=true;
+  private String logoDirectory;
 }

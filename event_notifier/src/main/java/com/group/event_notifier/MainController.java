@@ -1,17 +1,75 @@
 package com.group.event_notifier;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import lombok.Data;
+
+@Data
 @RequestMapping("/mainPage")
+@Controller
 public class MainController {
-    @GetMapping("/forYou")
-    public String fetchForYou(){
-        return "forYou";
-    }
+    private final UserRepository  userRepo;
+    private final EventRepository eventRepo;
+    
     @GetMapping("/featured")
     public String fetchAroundYou(){
         return "featured";
+    }
+
+    @GetMapping()
+    public String allEvent(Model model){
+        List<Event> events = new ArrayList<>();
+        this.eventRepo.findAll().forEach(i->events.add(i));
+        model.addAttribute("EVENT", events);
+        return "allevent";
+    }
+
+
+
+
+    @GetMapping("/forYou/{id}")
+    public String fetchForYou(@PathVariable("id") String id, Model model){
+        List<Event> forYou= new ArrayList<>();
+        List<Event> events = new ArrayList<>();
+        this.eventRepo.findAll().forEach(i->events.add(i));
+        User user = userRepo.findById(id).get(); 
+        List <String> interest = new ArrayList<>(); 
+        interest.add(user.getChoice5());
+        interest.add(user.getChoice4());
+        interest.add(user.getChoice3());
+        interest.add(user.getChoice2());
+        interest.add(user.getChoice1());
+        for (Event i : events) {
+            List<String> type =new ArrayList<>();
+            type.add(i.getType1());
+            type.add(i.getType2());
+            type.add(i.getType3());
+            type.add(i.getType4());
+            type.add(i.getType5());
+            int totalValue=0;
+            for (String j:type){
+                if(j !=null && interest.contains(j)){
+                  totalValue+= interest.indexOf(j);
+                }
+            }
+            if (totalValue>2.9){
+                forYou.add(i);
+            }
+
+            }
+               
+            model.addAttribute("FORYOU", forYou);
+
+        return "foryou";
+
     }
     
 }

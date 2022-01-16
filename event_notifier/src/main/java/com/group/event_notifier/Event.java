@@ -1,7 +1,6 @@
 package com.group.event_notifier;
 
-import java.util.Date;
-import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -16,9 +15,13 @@ public class Event {
     @Id
     private String id;
     private String eventName;
-    //private List<String> eventType;
-    private Date eventDescription;
-    private Date endingDate;
+    private String type1;
+    private String type2;
+    private String type3;
+    private String type4;
+    private String type5;
+    private String eventDescription;
+    private String endingDate;
     private String location;
     private String imgDirectory;
 
