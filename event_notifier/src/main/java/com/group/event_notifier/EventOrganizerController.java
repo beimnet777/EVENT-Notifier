@@ -38,5 +38,6 @@ public class EventOrganizerController {
   model.addAttribute("HOST", host);
     return "organizer";
   }
+  
 
 }

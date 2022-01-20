@@ -1,19 +1,21 @@
 package com.group.event_notifier;
 
-import java.util.Date;
+
+
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import lombok.AllArgsConstructor;
+
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
+
+
 
 @Data
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
-public class Event {
-    @Id
+public class OldEvent{
+  @Id
     private String id;
     private String eventName;
     private String type1;
@@ -26,5 +28,6 @@ public class Event {
     private String location;
     private String imgDirectory;
     private String organizationId;
-
+  
 }
+
