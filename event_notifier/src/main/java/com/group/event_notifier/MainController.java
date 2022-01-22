@@ -33,7 +33,7 @@ public class MainController {
         return "featured";
     }
 
-    @GetMapping()
+    @GetMapping
     public String allEvent(Model model) {
         List<Event> events = new ArrayList<>();
         this.eventRepo.findAll().forEach(i -> events.add(i));
@@ -41,12 +41,12 @@ public class MainController {
         return "event_list";
     }
 
-    @GetMapping("/forYou/{id}")
-    public String fetchForYou(@PathVariable("id") String id, Model model) {
+    @GetMapping("/forYou")
+    public String fetchForYou( Model model) {
         List<Event> forYou = new ArrayList<>();
         List<Event> events = new ArrayList<>();
         this.eventRepo.findAll().forEach(i -> events.add(i));
-        User user = userRepo.findById(id).get();
+        User user = userRepo.findById("12").get();
         List<String> interest = new ArrayList<>();
         interest.add(user.getChoice5());
         interest.add(user.getChoice4());
@@ -66,13 +66,13 @@ public class MainController {
                     totalValue += (interest.indexOf(j) + 1);
                 }
             }
-            if (totalValue > 2.9) {
+            if (totalValue > 5) {
                 forYou.add(i);
             }
 
         }
 
-        model.addAttribute("FORYOU", forYou);
+        model.addAttribute("EVENT", forYou);
 
         return "event_list";
 
