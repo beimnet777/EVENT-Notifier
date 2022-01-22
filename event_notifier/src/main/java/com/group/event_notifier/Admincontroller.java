@@ -45,10 +45,24 @@ public class AdminController {
     public String updateEvent (){
       List<Event> events = new ArrayList<>();
       this.eventRepo.findAll().forEach(i->events.add(i));
-      Date date = new Date();
+      String date = new Date().toString();
       for(Event i: events){
         if (i.getEndingDate().compareTo(date) <0){
-          OldEvent oldEvent= new OldEvent();
+          OldEvent oldEvent= new OldEvent(
+            i.getId(),
+            i.getEventName(),
+            i.getType1(),
+            i.getType2(),
+            i.getType3(),
+            i.getType4(),
+            i.getType5(),
+            i.getEventDescription(),
+            i.getEndingDate(),
+            i.getLocation(),
+            i.getImgDirectory(),
+            i.getOrganizationId()
+          );
+          
           eventRepo.deleteById(i.getId());
           oldEventRepo.save(oldEvent);
         }

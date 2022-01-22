@@ -38,7 +38,7 @@ public class MainController {
         List<Event> events = new ArrayList<>();
         this.eventRepo.findAll().forEach(i -> events.add(i));
         model.addAttribute("EVENT", events);
-        return "allevent";
+        return "event_list";
     }
 
     @GetMapping("/forYou/{id}")
@@ -74,7 +74,7 @@ public class MainController {
 
         model.addAttribute("FORYOU", forYou);
 
-        return "foryou";
+        return "event_list";
 
     }
 

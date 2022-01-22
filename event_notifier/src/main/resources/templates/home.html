@@ -1,15 +1,101 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{../css/home_style.css}">
+    <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Angkor&display=swap}" rel="stylesheet">
+    <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
+    <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Angkor&display=swap}" rel="stylesheet">
+    <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
+    <link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+    <link rel="preconnect" th:href="@{https://fonts.googleapis.com}">
+<link rel="preconnect" th:href="@{https://fonts.gstatic.com}" crossorigin>
+<link th:href="@{https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap}" rel="stylesheet">
 </head>
 <body>
- <div th:each = "host: ${HOST}">
-   <h1 th:text ="${host.companyEmail}">IT IS NOT WORking</h1>
-   <h1 th:text ="${host.companyName}"></h1>
- </div>
- <h1>KASU</h1>
+    <div class="container">
+        
+        <div class="card card--first">
+            
+            <div class="card__row card__row--header">
+                <div class="card__row__first card__row__first--col1">
+                    <div class="card__row__first__name card__row__first__name--logo"><h1>E</h1></div>
+                    <div class=" card__row__first__name--title"><h1 class="card__row__first__name__heading">EVENTO</h1></div>
+                </div>
+                <div class="card__row__first card__row__first__name card__row__first--col2 button" role="button"><a class="card__row__first__link" href=""><img class="card__row__first__link__img" src="../images/signin.png" width="30px"><button class="button__sign">Sign in</button></a></div>
+                <div class="card__row__first card__row__first--col3 button" role="button"><a class="card__row__first__link" href=""><img class="card__row__first__link__img" src="../images/signup.png" width="30px"><button class="button__sign">Sign Up</button></a></div>
+            </div>
+            <div class="card__row card__row--title">
+                <h1 class="card__row__second card__row__headline">Home Of <span class="card__row__second__event">Events</span></h1>
+            </div>
+            <div class="card__row card__row--description">
+                <div class="card__row__third card__row__third--text">
+                    <h1 class="card__row__third__heading">Welcome to evento,</h1>
+                    <p class="card__row__third__detail">We Are here to share the events happening in your area we will supply you with all events available on our platform.</p>    
+                </div>
+                <div class="card__row__third card__row__third--image"><img class="card__row__third__img" th:src="@{../images/event.png}" alt="event image"></div>
+    
+            </div>
+            <div class="card__row card__row--signup">
+                <div class="card__row__fourth"><button class="card__row__fourth__button">SIGN UP NOW</button></div>
+                <div> </div>
+            </div>
+        </div>
+        <div class="card card--second" >
+            <div class="card__row card__row--image"><img class="card__row__img card__row__img--explore" th:src="@{../images/explore.png}" alt="discover"></div>
+            <div class="card__row card__row--text">
+                <h1 class="card__row__heading">Explore Events</h1>
+                <p class="card__row__detail">once you sign up on evento you will be able to explore events posted by registered hosts</p>
+            </div>
+        </div>
+        <div class="card card--third">
+            
+            <div class="card__row card__row--text">
+                <h1 class="card__row__heading">Sharing Events</h1>
+                <p class="card__row__detail">once you sign up on evento you will be able to explore events posted by registered hosts</p>
+            </div>
+            <div class="card__row card__row--image"><img class="card__row__img" th:src="@{../images/sharet.png}" alt="share"></div>
+        </div>
+        <div class="card card--fourth">
+            <div class="card__row card__row--image"><img class="card__row__img" th:src="@{../images/postt.png}" alt="post"></div>
+            <div class="card__row card__row__text">
+                <h1 class="card__row__heading">Post Events</h1>
+                <p class="card__row__detail">once you sign up on evento you will be able to explore events posted by registered hosts</p>
+            </div>
+        </div>
+
+        <div class="card card--fifth">
+            
+            <div class="card__row card__row--text">
+                <h1 class="card__row__heading">Discover Organizers</h1>
+                <p class="card__row__detail">once you sign up on evento you will be able to explore events posted by registered hosts</p>
+            </div>
+            <div class="card__row card__row--image"><img class="card__row__img"  th:src="@{../images/discover2.jpg}" alt="discover"></div>
+        </div>
+        <div class="card card--sixth">
+            <div class="card__row card__row--social">
+                <div class="card__row"> <a class="card__row__link" href=""><img class="card__row__link__img" th:src="@{../images/instagram.png}"></a></div>
+                <div class="card__row"> <a class="card__row__link" href=""><img class="card__row__link__img" th:src="@{../images/facebook.png}"></a></div>
+                <div class="card__row"> <a class="card__row__link" href=""><img class="card__row__link__img" th:src="@{../images/twitter.png}"></a></div>      
+
+            </div>
+            <div class="card__row card__row--end">
+                <div class="card__row__seventh"><a class="card__row__seventh__link" href="">FAQ</a></div>
+                <div class="card__row__seventh"><a class="card__row__seventh__link" href="">ABOUT US</a></div>
+                <div class="card__row__seventh"><a class="card__row__seventh__link" href="">DEVELOPERS</a></div>
+                <div class="card__row__seventh"><a class="card__row__seventh__link" href="">MAIL</a></div>
+
+            </div>
+                
+                
+                
+        </div> 
+
+
+    </div>       
 </body>
-</html>
+</html> 

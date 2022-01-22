@@ -14,7 +14,7 @@ import lombok.Data;
 @RequestMapping("/events")
 public class EventController {
   private final EventRepository eventRepo;
-  @GetMapping("")
+  @GetMapping()
   public String saveEventForm(Model model, Event event){
     model.addAttribute("EVENT", event);
     return "eventUpload";

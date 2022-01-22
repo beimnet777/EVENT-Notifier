@@ -1,22 +1,23 @@
 package com.group.event_notifier;
 
 
-
 import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-
-
+import lombok.NoArgsConstructor;
 
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-public class OldEvent{
+public class OldEvent {
   @Id
-    private String id;
+    private Long id;
     private String eventName;
     private String type1;
     private String type2;
@@ -24,10 +25,10 @@ public class OldEvent{
     private String type4;
     private String type5;
     private String eventDescription;
-    private Date endingDate;
+    private String endingDate;
     private String location;
     private String imgDirectory;
     private String organizationId;
-  
+
 }
 
