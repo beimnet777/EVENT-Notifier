@@ -3,10 +3,16 @@ package com.group.event_notifier;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.group.event_notifier.security.Host;
+import com.group.event_notifier.security.HostRepository;
+import com.group.event_notifier.security.User;
+import com.group.event_notifier.security.UserRepository;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -33,6 +39,17 @@ public class MainController {
 
         return "event_list";
     }
+    @GetMapping("/search")
+    public String searcher (Model model ,@RequestParam("search") String keyword){
+        List<Event> events =new ArrayList<>();
+        
+        eventRepo.search(keyword).forEach(i->events.add(i));
+        
+        
+        model.addAttribute("EVENT",events);
+        return "event_list";
+
+    }
 
     @GetMapping
     public String allEvent(Model model) {
@@ -43,7 +60,7 @@ public class MainController {
     }
 
     @GetMapping("/forYou")
-    public String fetchForYou(@RequestParam String id, Model model) {
+    public String fetchForYou(@RequestParam Long id, Model model) {
         List<Event> forYou = new ArrayList<>();
         List<Event> events = new ArrayList<>();
         this.eventRepo.findAll().forEach(i -> events.add(i));
@@ -67,7 +84,7 @@ public class MainController {
                     totalValue += (interest.indexOf(j) + 1);
                 }
             }
-            if (totalValue > -1) {
+            if (totalValue > 5) {
                 forYou.add(i);
             }
 

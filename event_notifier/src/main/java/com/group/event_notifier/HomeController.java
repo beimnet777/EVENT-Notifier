@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 
 public class HomeController {
-    private final HostRepository hostrepo;
     @GetMapping()
     public String getMethodName() {
         

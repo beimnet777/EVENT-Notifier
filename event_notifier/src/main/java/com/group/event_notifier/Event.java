@@ -38,6 +38,6 @@ public class Event {
     private String location;
     @NotNull(message= "you must register a file")
     private String imgDirectory;
-    private String organizationId;
+    private Long organizationId;
 
 }

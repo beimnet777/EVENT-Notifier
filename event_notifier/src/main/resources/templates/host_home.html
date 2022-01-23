@@ -29,7 +29,9 @@
                 <h1 class="logo-evento">EVENTO</h1>
             </div>
             <div class="profile">
-                <button>Log Out</button>
+                <form method="POST" th:action="@{/logout}">
+                    <input type="submit" value="Logout"/>
+                    </form>
             </div>
         </div>
     </header>

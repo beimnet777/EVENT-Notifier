@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Host-signup</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/normal2.css}" rel="stylesheet">
+    
+</head>
+<body>
+    <section class="container" role="heading">
+        <section class="row header logo" id="section-1">
+            <div class="logo-E">
+                <h1>E</h1>
+            </div>
+            <h1 class="logo-evento">EVENTO</h1>
+        </section>
+        <section class="row" id="section-2" role="main">
+               <h2> Sign up -> Host</h2>
+                <form method="POST" th:action="@{/signup/host}" id="hostRegisterForm">    
+                    <section id="container-grid">
+                        <section id="sub-1" class="col">
+
+                            <input 
+                            class="form-control"
+                            type="text" 
+                            name="organizationName"  
+                            placeholder="Organization Name" 
+                            id="organizationName" 
+                            ><br>
+
+                            <input 
+                            class="form-control" 
+                            type="text" 
+                            name="username"
+                            placeholder="Preffered Username" 
+                            id="username" 
+                            ><br>
+
+                            <input 
+                            class="form-control" 
+                            type="password" 
+                            name="password"
+                            placeholder="Password" 
+                            id="password" 
+                            ><br>
+
+                            <input 
+                            class="form-control" 
+                            type="password" 
+                            name="confirm"
+                            placeholder="Confirm Password" 
+                            id="confirm" 
+                            ><br>
+
+                            <input 
+                            class="form-control" 
+                            type="email" 
+                            name="email"
+                            placeholder="Email address" 
+                            id="email" 
+                            ><br>
+
+                            <input                             
+                            class="form-control" 
+                            type="text" 
+                            name="streetAddress"
+                            placeholder="Street address" 
+                            id="streetAddress" 
+                            ><br>
+
+                            <input 
+                            class="form-control" 
+                            type="text" 
+                            name="phone"
+                            placeholder="Telephone No." 
+                            id="phone" 
+                            ><br>
+
+                        </section>
+                        <section id="sub-2" class="col hostsub-2">
+                            <p>Please attach your identification and proof of legal ownership of the organization: </p>
+                            <img id="img" src="#" alt="">
+                            <input class="form control" type="file" onchange="readURL(this);" title=" "/>&nbsp;
+                            <br>
+                            <input type="checkbox">&nbsp;
+                            I have agreed to take full responsibility for the events posted in this account and I will be held responsible for any kind of forgery through this account <br><br>
+                            <input type="checkbox">&nbsp;
+                            I have accepted and agreed to the license agreement
+
+                            <br><br>
+                            <button type="submit" value="signup" class="btn btn-outline-success" style="margin-left: 40%;"> Sign Up </button>
+                        </section>
+                    </section>
+                </form>
+            </section>
+        </section>
+        <section class="row" id="section-3"></section>
+    </section>
+    <script th:src="@{https://code.jquery.com/jquery-3.2.1.slim.min.js}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+    <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+    <script th:src="@{https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script>
+        function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                document.getElementById("img").style.display = "block   ";
+                $('#img').attr('src', e.target.result).width(200).height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>

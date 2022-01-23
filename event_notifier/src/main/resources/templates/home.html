@@ -26,8 +26,9 @@
                     <div class="card__row__first__name card__row__first__name--logo"><h1>E</h1></div>
                     <div class=" card__row__first__name--title"><h1 class="card__row__first__name__heading">EVENTO</h1></div>
                 </div>
-                <div class="card__row__first card__row__first__name card__row__first--col2 button" role="button"><a class="card__row__first__link" href=""><img class="card__row__first__link__img" src="../images/signin.png" width="30px"><button class="button__sign">Sign in</button></a></div>
-                <div class="card__row__first card__row__first--col3 button" role="button"><a class="card__row__first__link" href=""><img class="card__row__first__link__img" src="../images/signup.png" width="30px"><button class="button__sign">Sign Up</button></a></div>
+                <div class="card__row__first card__row__first__name card__row__first--col2 button" role="button"><a class="card__row__first__link" th:href="@{/make_events}"><img class="card__row__first__link__img" src="../images/signin.png" width="30px"><button class="button__sign">Sign in</button></a></div>
+                <div class="card__row__first card__row__first--col3 button" role="button"><a class="card__row__first__link" th:href="@{/signup/user}"><img class="card__row__first__link__img" src="../images/signup.png" width="30px"><button class="button__sign">Sign Up</button></a></div>
+                <div class="card__row__first card__row__first--col3 button" role="button"><a class="card__row__first__link" th:href="@{/signup/host}"><img class="card__row__first__link__img" src="../images/signup.png" width="30px"><button class="button__sign">Sign Up host</button></a></div>
             </div>
             <div class="card__row card__row--title">
                 <h1 class="card__row__second card__row__headline">Home Of <span class="card__row__second__event">Events</span></h1>
@@ -37,7 +38,7 @@
                     <h1 class="card__row__third__heading">Welcome to evento,</h1>
                     <p class="card__row__third__detail">We Are here to share the events happening in your area we will supply you with all events available on our platform.</p>   
                     <div class="card__row card__row--signup">
-                        <div class="card__row__fourth"><button class="card__row__fourth__button">SIGN UP NOW</button></div>
+                        <div class="card__row__fourth"><a th:href="@{/signup/user}"><button class="card__row__fourth__button">SIGN UP NOW</button></a></div>
                         <div> </div>
                     </div> 
                 </div>

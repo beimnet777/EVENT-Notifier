@@ -28,7 +28,7 @@ public class OldEvent {
     private String endingDate;
     private String location;
     private String imgDirectory;
-    private String organizationId;
+    private Long organizationId;
 
 }
 

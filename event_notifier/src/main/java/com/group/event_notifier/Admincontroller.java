@@ -2,13 +2,20 @@ package com.group.event_notifier;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.data.repository.query.Param;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.group.event_notifier.security.Host;
+import com.group.event_notifier.security.HostRepository;
+import com.group.event_notifier.security.User;
+import com.group.event_notifier.security.UserRepository;
+
 import java.util.Date;
 
 import lombok.Data;
@@ -45,10 +52,10 @@ public class AdminController {
     public String deleteAccount(){
       return "deleteAccount";
     }
-    @DeleteMapping("/users/deleteAccount/{id}")
-    public String deleteUser(@Param (value="id") String id){
+    @DeleteMapping("/users/deleteAccount")
+    public String deleteUser(@RequestParam Long id){
       userRepo.deleteById(id);
-      return "redirect:/users";
+      return "redirect:/admin";
     }
     
 
@@ -79,7 +86,7 @@ public class AdminController {
           oldEventRepo.save(oldEvent);
         }
       }
-      return "redirec:/admin";
+      return "redirect:/admin";
 
     }
 

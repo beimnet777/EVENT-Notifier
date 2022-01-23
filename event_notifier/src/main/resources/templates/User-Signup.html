@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-signup</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/normal2.css}" rel="stylesheet">
+</head>
+<body>
+    <section class="container">
+        <section class="row header logo" id="section-1" >
+            <div class="logo-E">
+                <h1>E</h1>
+            </div>
+            <h1 class="logo-evento">EVENTO</h1>
+        </section>
+        <section class="row" id="section-2" role="main">
+            <h2> Sign up -> User</h2><br>
+            <form method="POST" th:action="@{/signup/user}" id="userRegisterForm">
+                <section id="container-grid">    
+                    <section id="sub-1" class="col">
+                        <input class="form-control" placeholder="Full Name" id="fullname" type="text" name="fullname"><br>
+                        <input class="form-control" placeholder="Date of Birth" id="dateOfBirth" type="date" name="dateOfBirth"><br>
+                        <input class="form-control" placeholder="Preffered Username" id="username" type="text" name="username"><br>
+                        <input class="form-control" placeholder="Password" id="password" type="password" name="password"><br>
+                        <input class="form-control" placeholder="Confirm Password" id="confirm" type="password" name="confirm"><br>
+                        <input class="form-control" placeholder="Email address" id="email" type="email" name="email"><br>
+                        <input class="form-control" placeholder="Street address" id="streetAddress" type="text" name="streetAddress"><br>
+                        <input class="form-control" placeholder="Telephone No." id="phone" type="text" name="phone"><br>
+                    </section>
+                    <section id="sub-2" style="padding-top: 1vh;" role="main">
+                        <h3>What kinds of events are you interested in?</h3><br>
+                        <table class="table table-hover">
+                            <tr>
+                            <th>First choice:&nbsp;</th>
+                            <td> 
+                            <select name="choice1">
+                                <option>Educational Seminars</option>
+                                <option>Scholarships</option>
+                                <option>Sport</option>
+                                <option>Entertainment</option>
+                                <option>Concerts And Festivals</option>
+                            </select></td></tr>
+                            <tr>
+                            <th>Second choice:&nbsp;</th>
+                            <td> 
+                            <select name="choice2">
+                                <option>Educational Seminars</option>
+                                <option>Scholarships</option>
+                                <option>Sport</option>
+                                <option>Entertainment</option>
+                                <option>Concerts And Festivals</option>
+                            </select></td></tr>
+                            <tr>
+                            <th>Third choice:&nbsp;</th>
+                            <td> 
+                            <select name="choice3">
+                                <option>Educational Seminars</option>
+                                <option>Scholarships</option>
+                                <option>Sport</option>
+                                <option>Entertainment</option>
+                                <option>Concerts And Festivals</option>
+                            </select></td></tr>
+                            <tr>
+                            <th>Fourth choice:&nbsp;</th>
+                            <td> 
+                            <select name="choice4">
+                                <option>Educational Seminars</option>
+                                <option>Scholarships</option>
+                                <option>Sport</option>
+                                <option>Entertainment</option>
+                                <option>Concerts And Festivals</option>
+                            </select></td></tr>
+                            <tr>
+                            <th>Last choice:&nbsp;</th>
+                            <td> 
+                            <select name="choice5">
+                                <option>Educational Seminars</option>
+                                <option>Scholarships</option>
+                                <option>Sport</option>
+                                <option>Entertainment</option>
+                                <option>Concerts And Festivals</option>
+                            </select></td></tr>
+                        </table><br><br>
+                        <input type="checkbox">&nbsp; I have completed the questionaire<br><br>
+                        <input type="checkbox">&nbsp; I have accepted and agreed to the license agreement
+                        <br><br><br>
+                        <button type="submit" class="btn btn-outline-success" style="margin-left: 20%;"> Sign-Up </button>
+                    </section>
+                </section>
+            </form>
+        </section>
+        <section class="row" id="section-3" role="doc-footnote"></section>
+    </section>
+</body>
+</html>
