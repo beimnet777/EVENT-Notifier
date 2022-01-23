@@ -81,7 +81,7 @@ body{
     margin: 0;
     max-width: 2000px;
     background-color: white;
-    height: 100%;
+    height: 100vw;
 }
 
 header{
@@ -100,9 +100,6 @@ header .logo{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-}
-.active{
-    background-color: aquamarine;
 }
 
 .logo-E{
@@ -225,6 +222,47 @@ main .post{
     border: none;
 }
 
+.card{
+    margin: 0;
+    padding: 0;
+    height: 30rem;
+}
+
+.card-text{
+    height: 5rem;
+    width: auto;
+}
+
+.card-img-top{
+    height: 10rem;
+    width: auto;
+}
+
+@media(min-width: 576px ){
+    .card-text{
+        overflow-y: scroll;
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+      }
+      
+      /* Track */
+    ::-webkit-scrollbar-track {
+        background: white;
+      }
+      
+      /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: rgb(218, 217, 217);
+      }
+      
+      /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgb(158, 158, 158);
+      }
+}
+
 @media(min-width:800px){
     .top li{
         display: none;
@@ -335,7 +373,6 @@ main .post{
         color: lightblue;
         text-decoration: none;
     }
-
 
 }
 

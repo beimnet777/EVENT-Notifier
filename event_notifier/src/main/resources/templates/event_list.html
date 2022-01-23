@@ -62,14 +62,14 @@
     <main>
         <section th:each="foryou:${EVENT}" class="post">
             <div class="card" style="width: 18rem;">
-                <img th:src="@{../images/share.png}" class="card-img-top" alt="eventImage">
+                <img th:src="@{../upload/{x}(x=${foryou.imgDirectory})}" class="card-img-top" alt="eventImage">
                 <div class="card-body">
                   <h5 th:text="${foryou.eventName}" class="card-title">Card title</h5>
                   <p th:text="${foryou.eventDescription}" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <!-- <p th:text="${foryou.startingDate}" class="card-text">Starting Date</p> -->
-                  <!-- <div th:if="*{eventLink}== null">
-                  <a th:href="" class="btn btn-primary">Go somewhere</a>
-                </div> -->
+                  <p th:text="${foryou.imgDirectory}" class="card-text">Starting Date</p>
+                  
+                  <a href="" class="btn btn-primary">Go somewhere</a>
+               
                 </div>
               </div>
         </section>    

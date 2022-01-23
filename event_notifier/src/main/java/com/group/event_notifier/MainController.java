@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.Data;
 
@@ -28,9 +29,9 @@ public class MainController {
                 featured.add(i);
             }
         });
-        model.addAttribute("FEATURED", featured);
+        model.addAttribute("EVENT", featured);
 
-        return "featured";
+        return "event_list";
     }
 
     @GetMapping
@@ -42,11 +43,11 @@ public class MainController {
     }
 
     @GetMapping("/forYou")
-    public String fetchForYou( Model model) {
+    public String fetchForYou(@RequestParam String id, Model model) {
         List<Event> forYou = new ArrayList<>();
         List<Event> events = new ArrayList<>();
         this.eventRepo.findAll().forEach(i -> events.add(i));
-        User user = userRepo.findById("12").get();
+        User user = userRepo.findById(id).get();
         List<String> interest = new ArrayList<>();
         interest.add(user.getChoice5());
         interest.add(user.getChoice4());
@@ -66,7 +67,7 @@ public class MainController {
                     totalValue += (interest.indexOf(j) + 1);
                 }
             }
-            if (totalValue > 5) {
+            if (totalValue > -1) {
                 forYou.add(i);
             }
 
@@ -78,23 +79,23 @@ public class MainController {
 
     }
 
-    @GetMapping("/{value}")
-    public String fetchCatagory(@PathVariable("value") String value, Model model) {
-        List<String> type = new ArrayList<>();
-        List<Event> events = new ArrayList<>();
-        this.eventRepo.findAll().forEach(i -> {
-            type.add(i.getType1());
-            type.add(i.getType2());
-            type.add(i.getType3());
-            type.add(i.getType4());
-            type.add(i.getType5());
-            if (type.contains(value)) {
-                events.add(i);
-            }
-            type.clear();
+    // @GetMapping("catagories/{value}")
+    // public String fetchCatagory(@PathVariable("value") String value, Model model) {
+    //     List<String> type = new ArrayList<>();
+    //     List<Event> events = new ArrayList<>();
+    //     this.eventRepo.findAll().forEach(i -> {
+    //         type.add(i.getType1());
+    //         type.add(i.getType2());
+    //         type.add(i.getType3());
+    //         type.add(i.getType4());
+    //         type.add(i.getType5());
+    //         if (type.contains(value)) {
+    //             events.add(i);
+    //         }
+    //         type.clear();
 
-        });
-        return "event";
-    }
+    //     });
+    //     return "event";
+    // }
 
 }

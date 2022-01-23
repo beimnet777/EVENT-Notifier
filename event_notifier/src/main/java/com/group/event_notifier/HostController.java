@@ -3,8 +3,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +21,7 @@ import lombok.Data;
 @Data
 @RequestMapping("/make_events")
 public class HostController {
-    static String folderDirectory = System.getProperty("user.dir") + "/upload";
+    static String folderDirectory = System.getProperty("user.dir") + "/src/main/resources/static/upload";
     private final  EventRepository eventRepo;
     @GetMapping
     public String makeEvents(Model model,Event event){  
@@ -28,9 +31,10 @@ public class HostController {
     }
     @PostMapping
     public String saveEvents(@RequestParam("image") MultipartFile multipartfile,  Event event,Model model) throws IOException{
+        
         String imageValue = multipartfile.getOriginalFilename();
         Path file = Paths.get(folderDirectory, imageValue);
-        event.setImgDirectory(file.toString());
+        event.setImgDirectory(imageValue);
         model.addAttribute("EVENT", event);
         eventRepo.save(event); 
        

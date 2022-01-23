@@ -35,7 +35,7 @@
     </header>
     <main>
 
-        <a href="">Find Organizer</a>
+        <a th:href="@{/organizer}">Find Organizer</a>
 
         <div>
             <form th:action = "@{/make_events}" th:object = "${EVENT}"  method="post"  enctype="multipart/form-data">

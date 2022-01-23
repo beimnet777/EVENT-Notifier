@@ -81,20 +81,33 @@
 
     color: white;
 } 
+.title{
+    text-align:center;
+    font-size: larger;
+    font-family: Questrial,serif;
+
+}
+.title__page{
+    color:#967171;
+
+}
 .table{
     margin-left: 10vw;
     margin-right: auto;
+
 }
 
-.table__user__head{
+.table__user__head,td{
     font-family: sans-serif;
     max-width:max-content;
     min-width:10vw;
     border:solid black thin;
+    font-weight:400;
 
 }
 .button__delete{
-    margin-left: 58vw;
+    margin-left:29rem;
+    margin-right:1rem;
 }
 .button--approve{
     margin-left:40vw;
@@ -104,7 +117,7 @@
 h1{
     font-size:1rem;
     font-family: Roboto, sans-serif;
-    font-weight: lighter;
+    font-weight: 400;
 }
 
 

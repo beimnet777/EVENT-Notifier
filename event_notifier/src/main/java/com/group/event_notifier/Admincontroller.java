@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.ArrayList;
@@ -21,13 +22,25 @@ public class AdminController {
   private final EventRepository eventRepo;
   private final OldEventRepository oldEventRepo;
   @GetMapping
-    public String adminControl(){
-        return "adminControl";
+    public String adminControl(Model model){
+      List<User> users =new ArrayList<>();
+        userRepo.findAll().forEach(i->users.add(i));
+        model.addAttribute("USERS", users);
+      List<Host> uhost = new ArrayList<>(); //unapproved host
+      List<Host> vhost = new ArrayList<>();  // approved host 
+      hostRepo.findAll().forEach(i->{
+        if(i.isOrganization()){
+          vhost.add(i);
+        }
+        else{
+          uhost.add(i);
+        }
+      });
+      model.addAttribute("UHOST", uhost);
+      model.addAttribute("VHOST", vhost);
+        return "admin";
     }
-    @GetMapping("/users")
-    public String showUsers(){
-      return "users";
-    }
+    
     @GetMapping("/users/deleteAccount")
     public String deleteAccount(){
       return "deleteAccount";
@@ -37,10 +50,9 @@ public class AdminController {
       userRepo.deleteById(id);
       return "redirect:/users";
     }
-    @GetMapping("/hosts")
-    public String showHosts(){
-      return "hosts";
-    }
+    
+
+
     @GetMapping("/updateEvent")
     public String updateEvent (){
       List<Event> events = new ArrayList<>();

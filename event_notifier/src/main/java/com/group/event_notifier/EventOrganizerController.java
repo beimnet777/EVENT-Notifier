@@ -27,7 +27,7 @@ public class EventOrganizerController {
     });
     model.addAttribute("ORGANIZERS", organizers);
 
-    return "organizer";
+    return "organizerList";
   }
 
   
