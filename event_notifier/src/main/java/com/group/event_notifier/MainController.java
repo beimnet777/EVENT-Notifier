@@ -47,7 +47,7 @@ public class MainController {
         
         
         model.addAttribute("EVENT",events);
-        return "event_list";
+        return "search";
 
     }
 

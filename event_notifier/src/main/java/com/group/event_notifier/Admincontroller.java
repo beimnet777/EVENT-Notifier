@@ -50,13 +50,26 @@ public class AdminController {
     
     @GetMapping("/users/deleteAccount")
     public String deleteAccount(){
-      return "deleteAccount";
+      return "deleteUSer";
     }
-    @DeleteMapping("/users/deleteAccount")
-    public String deleteUser(@RequestParam Long id){
-      userRepo.deleteById(id);
+    // @GetMapping("/users/deleteAccount")
+    // public String deleteUser(@RequestParam Long id){
+    //   userRepo.deleteById(id);
+    //   return "redirect:/admin";
+    // }
+    @GetMapping("/users/approve")
+    public String showCredentials(@RequestParam Long id, Model model){
+      Host host = hostRepo.findById(id).get();
+      model.addAttribute("HOST",host);
+      return "approve";
+    }
+    @GetMapping("/users/approve")
+    public String approve(@RequestParam Long id){
+      Host host = hostRepo.findById(id).get();
+      host.setOrganization(true);
       return "redirect:/admin";
     }
+
     
 
 
