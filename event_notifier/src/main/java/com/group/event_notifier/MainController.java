@@ -8,11 +8,11 @@ import com.group.event_notifier.security.HostRepository;
 import com.group.event_notifier.security.User;
 import com.group.event_notifier.security.UserRepository;
 
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -21,7 +21,7 @@ import lombok.Data;
 @Data
 @RequestMapping("/mainPage")
 @Controller
-public class MainController {
+public class MainController  {
     private final UserRepository userRepo;
     private final EventRepository eventRepo;
     private final HostRepository hostRepo;
@@ -60,11 +60,11 @@ public class MainController {
     }
 
     @GetMapping("/forYou")
-    public String fetchForYou(@RequestParam Long id, Model model) {
+    public String fetchForYou( Model model,@AuthenticationPrincipal User user) {
         List<Event> forYou = new ArrayList<>();
         List<Event> events = new ArrayList<>();
         this.eventRepo.findAll().forEach(i -> events.add(i));
-        User user = userRepo.findById(id).get();
+        // User user = userRepo.findById(id).get();
         List<String> interest = new ArrayList<>();
         interest.add(user.getChoice5());
         interest.add(user.getChoice4());
@@ -91,6 +91,7 @@ public class MainController {
         }
 
         model.addAttribute("EVENT", forYou);
+        model.addAttribute("user",user);
 
         return "event_list";
 

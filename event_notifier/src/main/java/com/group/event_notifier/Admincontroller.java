@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,23 +52,23 @@ public class AdminController {
     public String deleteAccount(){
       return "deleteUSer";
     }
-    // @GetMapping("/users/deleteAccount")
-    // public String deleteUser(@RequestParam Long id){
-    //   userRepo.deleteById(id);
+    // // @GetMapping("/users/deleteAccount")
+    // // public String deleteUser(@RequestParam Long id){
+    // //   userRepo.deleteById(id);
+    // //   return "redirect:/admin";
+    // // }
+    // @GetMapping("/users/approve")
+    // public String showCredentials(@RequestParam Long id, Model model){
+    //   Host host = hostRepo.findById(id).get();
+    //   model.addAttribute("HOST",host);
+    //   return "approve";
+    // }
+    // @GetMapping("/users/approve")
+    // public String approve(@RequestParam Long id){
+    //   Host host = hostRepo.findById(id).get();
+    //   host.setOrganization(true);
     //   return "redirect:/admin";
     // }
-    @GetMapping("/users/approve")
-    public String showCredentials(@RequestParam Long id, Model model){
-      Host host = hostRepo.findById(id).get();
-      model.addAttribute("HOST",host);
-      return "approve";
-    }
-    @GetMapping("/users/approve")
-    public String approve(@RequestParam Long id){
-      Host host = hostRepo.findById(id).get();
-      host.setOrganization(true);
-      return "redirect:/admin";
-    }
 
     
 

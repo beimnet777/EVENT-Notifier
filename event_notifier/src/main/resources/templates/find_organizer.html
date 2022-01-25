@@ -14,6 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Angkor&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/bootstrap.min.css">
     <link rel="stylesheet" href="style/find_organizer.css">
+    <link rel="ICON" th:href="@{../images/Evento tab logo.jpg}" type="image/icon" />
 </head>
 <body>
     <header>
@@ -39,11 +40,14 @@
             </div>
         </div>
         <h1 class="organizers">ORGANIZERS</h1>
+        <div class="card__row__first card__row__first__name card__row__first--col2 " role="button"><a class="card__row__first__link" href=""><img class="card__row__first__link__img" src="../images/signin.png" width="30px"><form method="POST" th:action="@{/logout}">
+            <input type="submit" value="Logout"/>
+            </form></a></div>
     </header>
     <hr>
     <main>
         <div class="card" style="width: 18rem;">
-            <img src="images/TacoCloud.jfif" class="card-img-top" alt="...">
+            <img src="images/TacoCloud.jfif" class="card-img-top" alt="">
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

@@ -34,8 +34,7 @@ public class HostController {
         
         String imageValue = multipartfile.getOriginalFilename();
         Path file = Paths.get(folderDirectory, imageValue);
-        event.setImgDirectory(imageValue);
-        model.addAttribute("EVENT", event);
+        event.setImgDirectory(imageValue); 
         eventRepo.save(event); 
        
         Files.write(file, multipartfile.getBytes());
